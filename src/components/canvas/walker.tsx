@@ -7,10 +7,10 @@ type Props = {}
 
 const Walker = (props: Props) => {
   const walkerRef = useRef(null)
-  useMovment(walkerRef)
+  useMovment(walkerRef, true)
   return (
     <mesh ref={walkerRef} position-y={1}>
-      <capsuleGeometry />
+      <capsuleGeometry args={[0.4, 1]} />
       <meshBasicMaterial />
     </mesh>
   )

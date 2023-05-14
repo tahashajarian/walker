@@ -9,7 +9,10 @@ import Walker from './walker'
 export default function Street({ ...props }) {
   const [start, setStart] = useState(false)
   useThree(({ camera }) => {
-    if (!start) camera.position.y = 3
+    if (!start) {
+      camera.position.y = 5
+      camera.position.z = 10
+    }
     // camera.lookAt(new THREE.Vector3())
   })
   useEffect(() => {
@@ -22,11 +25,11 @@ export default function Street({ ...props }) {
       <Sky />
       <fog attach='fog' args={['#17171b', 30, 40]} />
       <mesh rotation={[-Math.PI / 2, 0, 0]}>
-        <planeBufferGeometry args={[100, 100]} />
+        <planeBufferGeometry args={[500, 500]} />
         <meshBasicMaterial color={'#009900'} />
       </mesh>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.1, 0]}>
-        <planeBufferGeometry args={[100, 2]} />
+        <planeBufferGeometry args={[500, 8]} />
         <meshBasicMaterial color={'#999'} />
       </mesh>
       <Walker />
